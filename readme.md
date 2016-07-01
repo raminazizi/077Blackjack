@@ -2,6 +2,8 @@
 
 --Players: James Bond (user) V.S. computer
 
+--What technologies are you using?
+
 --Why Bond needs to win? <!--  Create a story later -->
 
 --Set default Rules:
@@ -34,3 +36,10 @@
   - Allow player to change the wager for each hand
   - Bond jokes after winning a couple of hands
   - Bond video when you get close to $2M.
+
+----------Assets-----------
+
+Wireframes:
+![GamePageWireFrame](assets/GamePageWireFrame.png)
+![LandingPageWireFrame](assets/LandingPageWireFrame.png)
+![StoryPageWireFrame](assets/StoryPageWireFrame.png)
