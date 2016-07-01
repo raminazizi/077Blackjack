@@ -9,7 +9,7 @@
   - Dealer Stands on all 17.
   - etc
 
---Game Rules:
+--Game play Rules:
   <!-- - fill later -->
 
 --How to win: Bond starts with a $700k buy in and needs to get to $2M to win
@@ -22,12 +22,15 @@
 
 --Special Effects:
    - After winning/losing the entire game show graphics
-   - Bond jokes after winning a couple of hands
-   - Bond video when you get close to $2M.
 
-Research Questions:
+
+--Research Questions:
   - When does a new deck come in? and how to shuffle properly
-  - How does the dealer work? Who has the first cards? Dealer's turned card
+  - How does the dealer work? Who has the first cards? Dealer's turned card.
+  - Does it make sense to create split cards?
 
-Nice to have options:
-  - Show the total count for the dealer and Bond's hand.
+--Nice to have options:
+  - Allow player to split cards
+  - Allow player to change the wager for each hand
+  - Bond jokes after winning a couple of hands
+  - Bond video when you get close to $2M.
