@@ -26,8 +26,12 @@ body{
   margin: 5px 5px 5px 5px
 }
 
-#cell4{
+#turned {
 text-decoration: line-through;
+}
+
+#revealCard{
+
 }
 
 #cell1{
