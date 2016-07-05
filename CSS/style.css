@@ -1,0 +1,77 @@
+body{
+  background-color: silver;
+}
+
+/*#board {
+  width: 410px;
+  margin: 0 auto;
+
+}*/
+
+.cardTile{
+  width: 130px ;
+  height:200px ;
+  border: 1px solid black;
+  float: left;
+  margin: 5px 5px 5px 5px
+}
+
+#dealerRow{
+  height: 220px;
+  margin: 5px 5px 5px 5px
+}
+
+#playerRow{
+  height: 220px;
+  margin: 5px 5px 5px 5px
+}
+
+#cell4{
+text-decoration: line-through;
+}
+
+#cell1{
+
+}
+
+#playerDashboard{
+
+}
+
+#moneyCounter{
+margin: 5px 5px 5px 5px
+
+
+}
+#totalMoney{
+margin: 5px 5px 5px 5px
+border: 1px solid black;
+}
+#WagerSubmitButton{
+  /*float: left;*/
+}
+
+#wagerInput{
+
+}
+
+#playerDecision{
+border: 1px solid black;
+margin: 5px 5px 5px 5px
+}
+#dealButton{
+  /*border: 1px solid black;*/
+  margin: 5px 5px 5px 5px
+}
+#hitButton{
+  margin: 5px 5px 5px 5px
+
+}
+#standButton{
+  margin: 5px 5px 5px 5px
+
+}
+#doubleDownButton{
+  margin: 5px 5px 5px 5px
+
+}

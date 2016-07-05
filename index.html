@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>007 Blackjack</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+      <div id= "dealerRow">
+        <div class="cardTile" id ='cell2'><p id=cell2Display></p></div>
+        <div class="cardTile" id ='cell4'><p id=cell4Display></p></div>
+      </div>
+<div>
+      <div id= "playerRow">
+        <div class="cardTile" id ='cell1'><p id=cell1Display></p></div>
+        <div class="cardTile" id ='cell3'><p id=cell3Display></p></div>
+      </div>
+</div>
+
+  </div>
+      <div>
+          <div id ='playerTotalDisplay'></div>
+          <div id ='dealerTotalDisplay'></div>
+      </div>
+
+      <div id= "playerDashboard">
+          <div id ='moneyCounter'>
+            <div id="totalMoney">Total Balance: $2,000,000</div>
+            <div id="wagerDisplay">Current Wager:</div>
+            <input id="wagerInput">
+            <button id="wagerSubmitButton">Enter Wager</button>
+          </div>
+
+          <div id ='playerDecision'>
+            <button id="dealButton">Deal</button>
+            <button id="hitButton">Hit</button>
+            <button id="standButton">Stand</button>
+            <button id="doubleDownButton">Double Down</button>
+          </div>
+
+      </div>
+</div>
+<script   src="https://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
+  <script src = "javascript/app.js"></script>
+</body>
+</html>
