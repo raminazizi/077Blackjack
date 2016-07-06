@@ -6,10 +6,10 @@ function CardConstructor (a, b){
     this.mathvalue = a;
     this.name = b;
 }
-var SAce = new CardConstructor (1, "SAce");
-var DAce = new CardConstructor (1, "DAce");
-var HAce = new CardConstructor (1, "HAce");
-var CAce = new CardConstructor (1, "CAce");
+var SAce = new CardConstructor (11, "SAce");
+var DAce = new CardConstructor (11, "DAce");
+var HAce = new CardConstructor (11, "HAce");
+var CAce = new CardConstructor (11, "CAce");
 var S2 = new CardConstructor (2, "S2");
 var D2 = new CardConstructor (2, "D2");
 var H2 = new CardConstructor (2, "H2");
@@ -92,10 +92,24 @@ return playerHandTotal;
 var dealerHandArray = []
 function countDealerTotal(){
   var dealerHandTotal = 0;
+
+  // if(ace is false){
   $.each(dealerHandArray,function() {
     dealerHandTotal += this;
-  });
-return dealerHandTotal;
+    });
+    // copy/paste $.each from web:http://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
+  // }
+  // if (ace is true){
+  //   $.each(dealerHandArray,function() {
+  //     hardHandTotal += this;
+  //     });
+  //     if (softHandTotal < 21){
+  //       dealerTotalHand = hardHandTotal + 10
+  //     }
+  // }
+
+
+return (dealerHandTotal);
 }
   // copy/paste $.each from web:http://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
 
@@ -104,42 +118,40 @@ return dealerHandTotal;
 function playerBust (){
   if(countPlayerTotal() > 21){
     alert("Player Bust")
-    resetAfterHand()
     currentBalance = currentBalance - handWager
     $('#totalMoney').html("Current Balance= "+" $"+ currentBalance)
-    // location.reload()
+    resetAfterHand()
 }}
 function dealerBust (){
     if(countDealerTotal() > 21){
       alert("Dealer Bust")
-      resetAfterHand()
       currentBalance = currentBalance + handWager
       $('#totalMoney').html("Current Balance= "+" $"+ currentBalance)
+      resetAfterHand()
   }}
 function decideWinner(){
-  if(countDealerTotal() >= countPlayerTotal() && countDealerTotal() < 21){
+  if(countDealerTotal() > countPlayerTotal() && countDealerTotal() <= 21){
     alert("Dealer Wins !")
-    resetAfterHand()
     currentBalance = currentBalance - handWager
     $('#totalMoney').html("Current Balance= "+" $"+ currentBalance)
-  }
-  else if(countDealerTotal() < countPlayerTotal() && countPlayerTotal() < 21){
-    alert("Player Wins !")
     resetAfterHand()
+  }
+  else if(countDealerTotal() < countPlayerTotal() && countPlayerTotal() <= 21){
+    alert("Player Wins !")
     currentBalance = currentBalance + handWager
     $('#totalMoney').html("Current Balance= "+" $"+ currentBalance)
-  }
-  else if(countDealerTotal()=== 21){
-    alert("Dealer Wins !")
     resetAfterHand()
-    currentBalance = currentBalance - handWager
+  }
+  else if(countDealerTotal() = countPlayerTotal()){
+    alert("Tie !")
     $('#totalMoney').html("Current Balance= "+" $"+ currentBalance)
+    resetAfterHand()
   }
   if(countDealerTotal() > 21){
     alert("Dealer Bust")
-    resetAfterHand()
-    currentBalance = currentBalance - handWager
+    currentBalance = currentBalance + handWager
     $('#totalMoney').html("Current Balance= "+" $"+ currentBalance)
+    resetAfterHand()
   }
 }
 
@@ -285,7 +297,14 @@ $('#standButton').click(function(){
   // Turn the hidden card
   $('#turned').attr('id','revealCard')
   // make other buttons hidden
-  if (countDealerTotal() < 27){
+  if (countDealerTotal() > 17 && countDealerTotal() < countPlayerTotal()){
+    alert ("player Wins!")
+  }
+  if (countDealerTotal() > 17 && countDealerTotal() > countPlayerTotal()){
+    alert ("Dealer Wins!")
+  }
+
+  if (countDealerTotal() < 17){
     var cellTen = dealOneCard()
     console.log(cellTen)
     $('#dealerRow').append('<div class="cardTile" id="cell10"><p id=cell10Display></p></div>')
@@ -293,8 +312,8 @@ $('#standButton').click(function(){
     dealerHandArray.push(cellTen[0]);
     countDealerTotal()
     $('#dealerTotalDisplay').html("Dealer's Total= "+ countDealerTotal())
-    decideWinner()
-      if (countDealerTotal() < 27){
+
+      if (countDealerTotal() < 17){
         var cellEleven = dealOneCard()
         console.log(cellEleven)
         $('#dealerRow').append('<div class="cardTile" id="cell11"><p id=cell11Display></p></div>')
@@ -302,42 +321,56 @@ $('#standButton').click(function(){
         dealerHandArray.push(cellEleven[0]);
         countDealerTotal()
         $('#dealerTotalDisplay').html("Dealer's Total= "+ countDealerTotal())
-        decideWinner()
-      }
-    }
+        console.log(countDealerTotal())
+            if(countDealerTotal() < 17){
+              var cellTwelve = dealOneCard()
+                    console.log(cellTwelve)
+                    $('#dealerRow').append('<div class="cardTile" id="cell12"><p id=cell12Display></p></div>')
+                    $('#cell12Display').append(cellTwelve[0]+ " "+ cellTwelve[1])
+                    dealerHandArray.push(cellTwelve[0]);
+                    countDealerTotal()
+                    $('#dealerTotalDisplay').html("Dealer's Total= "+ countDealerTotal())
+                        if(countDealerTotal() < 17){
+                          var cellThirteen = dealOneCard()
+                                    console.log(cellThirteen)
+                                    $('#dealerRow').append('<div class="cardTile" id="cell13"><p id=cell13Display></p></div>')
+                                    $('#cell13Display').append(cellThirteen[0]+ " "+ cellThirteen[1])
+                                    dealerHandArray.push(cellThirteen[0]);
+                                    countDealerTotal()
+                                    $('#dealerTotalDisplay').html("Dealer's Total= "+ countDealerTotal())
+                        }
+              }
+          }
+        }
+  decideWinner()
 })
-//       if (countDealerTotal()< 17){
-//         var cellEleven = dealOneCard()
-//         // console.log(cellEleven)
-//         $('#dealerRow').append('<div class="cardTile" id="cell11"><p id=cell11Display></p></div>')
-//         $('#cell11Display').append(cellEleven[0]+ " "+ cellEleven[1])
-//         dealerHandArray.push(cellEleven[0]);
-//         countDealerTotal()
-//         decideWinner()
-//         $('#dealerTotalDisplay').html("Dealer's Total= "+ countDealerTotal())
-//           if (countDealerTotal()< 17){
-//             var cellTwelve = dealOneCard()
-//             console.log(cellTwelve)
-//             $('#dealerRow').append('<div class="cardTile" id="cell12"><p id=cell12Display></p></div>')
-//             $('#cell12Display').append(cellTwelve[0]+ " "+ cellTwelve[1])
-//             dealerHandArray.push(cellTwelve[0]);
-//             $('#dealerTotalDisplay').html("Dealer's Total= "+ countDealerTotal())
-//             countDealerTotal()
-//             decideWinner()
-//
-//               if (countDealerTotal()< 17){
-//                 var cellThirteen = dealOneCard()
-//                 // console.log(cellTwelve)
-//                 $('#dealerRow').append('<div class="cardTile" id="cell13"><p id=cell13Display></p></div>')
-//                 $('#cell13Display').append(cellThirteen[0]+ " "+ cellTwelve[1])
-//                 dealerHandArray.push(cellThirteen[0]);
-//                 $('#dealerTotalDisplay').html("Dealer's Total= "+ countDealerTotal())
-//                 countDealerTotal()
-//                 decideWinner()
-//               }
-//             }
-//         }
-//     countDealerTotal()
-//     }
-// decideWinner();
-// })
+      // if (this.countDealerTotal() < 17){
+      //   var cellEleven = dealOneCard()
+      //   console.log(cellEleven)
+      //   $('#dealerRow').append('<div class="cardTile" id="cell11"><p id=cell11Display></p></div>')
+      //   $('#cell11Display').append(cellEleven[0]+ " "+ cellEleven[1])
+      //   dealerHandArray.push(cellEleven[0]);
+      //   countDealerTotal()
+      //   $('#dealerTotalDisplay').html("Dealer's Total= "+ countDealerTotal())
+      //   decideWinner()
+      //     if(this.countDealerTotal() < 17){
+      //       var cellTwelve = dealOneCard()
+      //       console.log(cellTwelve)
+      //       $('#dealerRow').append('<div class="cardTile" id="cell12"><p id=cell12Display></p></div>')
+      //       $('#cell12Display').append(cellTwelve[0]+ " "+ cellTwelve[1])
+      //       dealerHandArray.push(cellTwelve[0]);
+      //       countDealerTotal()
+      //       $('#dealerTotalDisplay').html("Dealer's Total= "+ countDealerTotal())
+      //       decideWinner()
+      //         if(this.countDealerTotal() < 17){
+      //           var cellThirteen = dealOneCard()
+      //           console.log(cellThirteen)
+      //           $('#dealerRow').append('<div class="cardTile" id="cell13"><p id=cell13Display></p></div>')
+      //           $('#cell13Display').append(cellThirteen[0]+ " "+ cellThirteen[1])
+      //           dealerHandArray.push(cellThirteen[0]);
+      //           countDealerTotal()
+      //           $('#dealerTotalDisplay').html("Dealer's Total= "+ countDealerTotal())
+      //           decideWinner()
+      //         }
+      //     }
+      // }
