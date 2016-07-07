@@ -77,5 +77,8 @@ margin: 5px 5px 5px 5px
 }
 #doubleDownButton{
   margin: 5px 5px 5px 5px
+}
 
+.hidden {
+    visibility: hidden;
 }

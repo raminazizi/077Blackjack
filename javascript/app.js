@@ -61,58 +61,97 @@ var CK = new CardConstructor (10, "CK");
 
 // Defining a 5-hand deck of cards (104 cards)
 var mainDeck = [SAce, DAce, HAce, CAce, S2, S3, S4, S5, S6, S7, S8, S9, S10, SJ, SQ, SK, D2, D3, D4, D5, D6, D7, D8, D9, D10, DJ, DQ, DK, H2, H3, H4, H5, H6, H7, H8, H9, H10, HJ, HQ, HK, C2, C3, C4, C5, C6, C7, C8, C9,C10, CJ, CQ, CK, SAce, DAce, HAce, CAce, S2, S3, S4, S5, S6, S7, S8, S9, S10, SJ, SQ, SK, D2, D3, D4, D5, D6, D7, D8, D9, D10, DJ, DQ, DK, H2, H3, H4, H5, H6, H7, H8, H9, H10, HJ, HQ, HK, C2, C3, C4, C5, C6, C7, C8, C9,C10, CJ, CQ, CK, SAce, DAce, HAce, CAce, S2, S3, S4, S5, S6, S7, S8, S9, S10, SJ, SQ, SK, D2, D3, D4, D5, D6, D7, D8, D9, D10, DJ, DQ, DK, H2, H3, H4, H5, H6, H7, H8, H9, H10, HJ, HQ, HK, C2, C3, C4, C5, C6, C7, C8, C9,C10, CJ, CQ, CK, SAce, DAce, HAce, CAce, S2, S3, S4, S5, S6, S7, S8, S9, S10, SJ, SQ, SK, D2, D3, D4, D5, D6, D7, D8, D9, D10, DJ, DQ, DK, H2, H3, H4, H5, H6, H7, H8, H9, H10, HJ, HQ, HK, C2, C3, C4, C5, C6, C7, C8, C9,C10, CJ, CQ, CK, SAce, DAce, HAce, CAce, S2, S3, S4, S5, S6, S7, S8, S9, S10, SJ, SQ, SK, D2, D3, D4, D5, D6, D7, D8, D9, D10, DJ, DQ, DK, H2, H3, H4, H5, H6, H7, H8, H9, H10, HJ, HQ, HK, C2, C3, C4, C5, C6, C7, C8, C9,C10, CJ, CQ, CK]
-
 // Pick a random card in the mainDeck
 function dealOneCard (){
     var oneCard = mainDeck[Math.floor(Math.random() * mainDeck.length)];
     // console.log(mainDeck.indexOf(oneCard))
     var removeCard = mainDeck.splice(mainDeck.indexOf(oneCard), 1);
-    // var removeOneCard = mainDeck.splice(Math.floor(Math.random() * mainDeck.length),1);
-    // console.log(oneCard)
-    // var selectedCardValue = oneCard.mathvalue
-    // // console.log(selectedCardValue)
-    // var selectedCardId = oneCard.name
-    // console.log(selectedCArdId)
     var selectedCardArray = [oneCard.mathvalue, oneCard.name]
     return selectedCardArray
 }
-
-
 //Player's hand math total
+function aceCheckDealer() {
+  var hasAce = false;
+  for (var i = 0; i < dealerHandArray.length; i++) {
+      if (dealerHandArray[i] === 11) {
+          hasAce = true;
+      }
+
+    }
+  return hasAce;
+}
 var playerHandArray = []
+function aceCheckPlayer() {
+  var hasAce = false;
+  for (var i = 0; i < playerHandArray.length; i++) {
+      if (playerHandArray[i] === 11) {
+        hasAce = true;
+      }
+  }
+  return hasAce;
+}
+
 function countPlayerTotal(){
   var playerHandTotal = 0;
-  $.each(playerHandArray,function() {
-    playerHandTotal += this;
-  });
-  // copy/paste $.each from web:http://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
-return playerHandTotal;
-}
-//Dealer's hand math total
+ if(aceCheckPlayer()){
+    var hardHandTotal = 0
+    $.each(playerHandArray,function() {
+    hardHandTotal += this;
+    // copy/paste $.each from web:http://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
+    });
+      if(hardHandTotal > 21){
+        var newHardHandTotal = 0
+        newHardHandTotal = hardHandTotal - 10
+          if (newHardHandTotal > 21){
+            playerHandTotal = newHardHandTotal - 10
+          }
+          else{
+            playerHandTotal = newHardHandTotal
+          }
+      }
+      else {
+        playerHandTotal = hardHandTotal
+      }
+    }
+ else {
+     $.each(playerHandArray,function() {
+      playerHandTotal += this;
+        });
+        // copy/paste $.each from web:http://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
+      }
+  return (playerHandTotal);
+ }
+
 var dealerHandArray = []
 function countDealerTotal(){
   var dealerHandTotal = 0;
-
-  // if(ace is false){
-  $.each(dealerHandArray,function() {
-    dealerHandTotal += this;
-    });
-    // copy/paste $.each from web:http://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
-  // }
-  // if (ace is true){
-  //   $.each(dealerHandArray,function() {
-  //     hardHandTotal += this;
-  //     });
-  //     if (softHandTotal < 21){
-  //       dealerTotalHand = hardHandTotal + 10
-  //     }
-  // }
-
-
-return (dealerHandTotal);
-}
-  // copy/paste $.each from web:http://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
-
+  if(aceCheckDealer()){
+     var hardHandTotal = 0
+     var dealerHandArrayHandTotal = 0
+     $.each(dealerHandArray,function() {
+     hardHandTotal += this;
+     });
+       if(hardHandTotal > 21){
+         var newHardHandTotal = 0
+         newHardHandTotal = hardHandTotal - 10
+           if (newHardHandTotal > 21){
+             dealerHandTotal = newHardHandTotal - 10
+           }
+           else{
+             dealerHandTotal = newHardHandTotal
+           }
+       }
+       else {
+         dealerHandTotal = hardHandTotal
+       }
+     }
+  else {
+      $.each(dealerHandArray,function() {
+       dealerHandTotal += this;
+         });
+       }
+   return (dealerHandTotal);
+  }
 
 // Win Logic
 function playerBust (){
@@ -142,7 +181,7 @@ function decideWinner(){
     $('#totalMoney').html("Current Balance= "+" $"+ currentBalance)
     resetAfterHand()
   }
-  else if(countDealerTotal() = countPlayerTotal()){
+  else if(countDealerTotal() === countPlayerTotal()){
     alert("Tie !")
     $('#totalMoney').html("Current Balance= "+" $"+ currentBalance)
     resetAfterHand()
@@ -156,6 +195,7 @@ function decideWinner(){
 }
 
 function resetAfterHand(){
+
   $('#cell5').remove();
   $('#cell6').remove();
   $('#cell7').remove();
@@ -163,6 +203,11 @@ function resetAfterHand(){
   $('#cell9').remove();
   $('#cell10').remove();
   $('#cell11').remove();
+  $('#cell12').remove();
+  $('#cell13').remove();
+  $('#cell14').remove();
+  $('#cell15').remove();
+  $('#cell16').remove();
   $('#cell1Display').html("");
   $('#cell2Display').html("");
   $('#cell3Display').html("");
@@ -174,17 +219,21 @@ function resetAfterHand(){
   $('#dealerTotalDisplay').html("");
   $('#wagerSubmitButton').show();
   $('#wagerInput').show();
-
+  $('#dealButton').removeClass("hidden")
+  $('#hitButton').addClass("hidden")
+  $('#standButton').addClass("hidden")
+  $('#doubleDownButton').addClass("hidden")
   if (currentBalance < missionObjective){
     console.log("hello")
   }
   if (currentBalance > missionObjective){
     alert ("Congratulations Mr. Bond")
   }
-  if (currentBalance === 0){
+  if (currentBalance <= 0){
     alert ("Mission Failed")
   }
   var hitCount = 1;
+  // var handWager = 500000
 }
 
 
@@ -198,6 +247,7 @@ $('#wagerSubmitButton').click(function(){
   $('#wagerDisplay').html("Current Wager= "+" $"+ newWager )
   handWager = newWager
 })
+
 
 // Deal button functionalities
 $('#dealButton').click(function(){
@@ -220,10 +270,13 @@ $('#dealButton').click(function(){
 
   countPlayerTotal();
   countDealerTotal();
-  playerBust();
+  // $('#wagerSubmitButton').hide();
+  // $('#wagerInput').hide();
 
-  $('#wagerSubmitButton').hide();
-  $('#wagerInput').hide();
+  playerBust();
+  $('.hidden').removeClass("hidden")
+  $('#dealButton').addClass("hidden")
+
 })
 
 // hit button functionalities
@@ -277,7 +330,7 @@ $('#hitButton').click(function(){
     $('#playerTotalDisplay').html("Player Total= "+ countPlayerTotal())
     playerBust ()
     }
-    else if(hitCount === 6){
+    else if(hitCount < 6){
     var cellFourteen = dealOneCard()
     $('#playerRow').append('<div class="cardTile" id="cell14"><p id=cell14Display></p></div>')
     $('#cell14Display').html(cellFourteen[0]+ " "+ cellFourteen[1])
@@ -286,6 +339,25 @@ $('#hitButton').click(function(){
     $('#playerTotalDisplay').html("Player Total= "+ countPlayerTotal())
     playerBust ()
     }
+    else if(hitCount < 7){
+    var cellFifteen = dealOneCard()
+    $('#playerRow').append('<div class="cardTile" id="cell15"><p id=cell15Display></p></div>')
+    $('#cell15Display').html(cellFifteen[0]+ " "+ cellFifteen[1])
+    playerHandArray.push(cellFifteen[0]);
+    countPlayerTotal()
+    $('#playerTotalDisplay').html("Player Total= "+ countPlayerTotal())
+    playerBust ()
+    }
+    else if(hitCount < 8){
+    var cellSixteen = dealOneCard()
+    $('#playerRow').append('<div class="cardTile" id="cell16"><p id=cell16Display></p></div>')
+    $('#cell16Display').html(cellSixteen[0]+ " "+ cellSixteen[1])
+    playerHandArray.push(cellSixteen[0]);
+    countPlayerTotal()
+    $('#playerTotalDisplay').html("Player Total= "+ countPlayerTotal())
+    playerBust ()
+    }
+
     else {
       console.log("else hit")
     }
@@ -296,13 +368,6 @@ hitCount++
 $('#standButton').click(function(){
   // Turn the hidden card
   $('#turned').attr('id','revealCard')
-  // make other buttons hidden
-  if (countDealerTotal() > 17 && countDealerTotal() < countPlayerTotal()){
-    alert ("player Wins!")
-  }
-  if (countDealerTotal() > 17 && countDealerTotal() > countPlayerTotal()){
-    alert ("Dealer Wins!")
-  }
 
   if (countDealerTotal() < 17){
     var cellTen = dealOneCard()
@@ -341,36 +406,75 @@ $('#standButton').click(function(){
                         }
               }
           }
+            decideWinner()
+          }
+        else {
+          decideWinner()
         }
-  decideWinner()
 })
-      // if (this.countDealerTotal() < 17){
-      //   var cellEleven = dealOneCard()
-      //   console.log(cellEleven)
-      //   $('#dealerRow').append('<div class="cardTile" id="cell11"><p id=cell11Display></p></div>')
-      //   $('#cell11Display').append(cellEleven[0]+ " "+ cellEleven[1])
-      //   dealerHandArray.push(cellEleven[0]);
-      //   countDealerTotal()
-      //   $('#dealerTotalDisplay').html("Dealer's Total= "+ countDealerTotal())
-      //   decideWinner()
-      //     if(this.countDealerTotal() < 17){
-      //       var cellTwelve = dealOneCard()
-      //       console.log(cellTwelve)
-      //       $('#dealerRow').append('<div class="cardTile" id="cell12"><p id=cell12Display></p></div>')
-      //       $('#cell12Display').append(cellTwelve[0]+ " "+ cellTwelve[1])
-      //       dealerHandArray.push(cellTwelve[0]);
-      //       countDealerTotal()
-      //       $('#dealerTotalDisplay').html("Dealer's Total= "+ countDealerTotal())
-      //       decideWinner()
-      //         if(this.countDealerTotal() < 17){
-      //           var cellThirteen = dealOneCard()
-      //           console.log(cellThirteen)
-      //           $('#dealerRow').append('<div class="cardTile" id="cell13"><p id=cell13Display></p></div>')
-      //           $('#cell13Display').append(cellThirteen[0]+ " "+ cellThirteen[1])
-      //           dealerHandArray.push(cellThirteen[0]);
-      //           countDealerTotal()
-      //           $('#dealerTotalDisplay').html("Dealer's Total= "+ countDealerTotal())
-      //           decideWinner()
-      //         }
-      //     }
-      // }
+
+// Double Down button functionalities
+$('#doubleDownButton').click(function(){
+
+  var cellFive = dealOneCard()
+  $('#playerRow').append('<div class="cardTile" id="cell5"><p id=cell5Display></p></div>')
+  $('#cell5Display').html(cellFive[0]+ " "+ cellFive[1])
+  playerHandArray.push(cellFive[0]);
+  countPlayerTotal()
+  $('#playerTotalDisplay').html("Player Total= "+ countPlayerTotal())
+
+  handWager = handWager * 2;
+  $('#wagerDisplay').html("Current Wager= "+" $"+ handWager)
+  playerBust ()
+
+  if(countPlayerTotal() < 21){
+    $('#turned').attr('id','revealCard')
+  // make other buttons hidden
+
+    if (countDealerTotal() < 17){
+    var cellTen = dealOneCard()
+    console.log(cellTen)
+    $('#dealerRow').append('<div class="cardTile" id="cell10"><p id=cell10Display></p></div>')
+    $('#cell10Display').append(cellTen[0]+ " "+ cellTen[1])
+    dealerHandArray.push(cellTen[0]);
+    countDealerTotal()
+    $('#dealerTotalDisplay').html("Dealer's Total= "+ countDealerTotal())
+
+      if (countDealerTotal() < 17){
+        var cellEleven = dealOneCard()
+        console.log(cellEleven)
+        $('#dealerRow').append('<div class="cardTile" id="cell11"><p id=cell11Display></p></div>')
+        $('#cell11Display').append(cellEleven[0]+ " "+ cellEleven[1])
+        dealerHandArray.push(cellEleven[0]);
+        countDealerTotal()
+        $('#dealerTotalDisplay').html("Dealer's Total= "+ countDealerTotal())
+        console.log(countDealerTotal())
+
+            if(countDealerTotal() < 17){
+              var cellTwelve = dealOneCard()
+                    console.log(cellTwelve)
+                    $('#dealerRow').append('<div class="cardTile" id="cell12"><p id=cell12Display></p></div>')
+                    $('#cell12Display').append(cellTwelve[0]+ " "+ cellTwelve[1])
+                    dealerHandArray.push(cellTwelve[0]);
+                    countDealerTotal()
+                    $('#dealerTotalDisplay').html("Dealer's Total= "+ countDealerTotal())
+                    console.log(countDealerTotal())
+                        if(countDealerTotal() < 17){
+                          var cellThirteen = dealOneCard()
+                                    console.log(cellThirteen)
+                                    $('#dealerRow').append('<div class="cardTile" id="cell13"><p id=cell13Display></p></div>')
+                                    $('#cell13Display').append(cellThirteen[0]+ " "+ cellThirteen[1])
+                                    dealerHandArray.push(cellThirteen[0]);
+                                    countDealerTotal()
+                                    $('#dealerTotalDisplay').html("Dealer's Total= "+ countDealerTotal())
+                        }
+              }
+          }
+          decideWinner()
+        }
+        else {
+          decideWinner()
+        }
+      }
+
+})
