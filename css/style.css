@@ -1,13 +1,6 @@
 body {
   background-image: url("../assets/background.png");
-
 }
-
-/*#board {
-  width: 410px;
-  margin: 0 auto;
-
-}*/
 
 .cardTile{
   width: 132px ;
@@ -19,345 +12,330 @@ body {
 #dealerRow{
   height: 220px;
   margin: 5px 5px 5px 5px;
-  /*float: right;*/
-  /*background-color: black*/
+  float: right;
 }
 #whoWon{
-  text-align: center;
+  text-align: left;
+  color: white;
+  font-size: 200%;
+  background-color: black;
+  width: 270px;
 }
 #playerRow{
   height: 220px;
   margin: 5px 5px 5px 5px
-  /*float: left;*/
-  /*background-color: black*/
+  float: left;
 }
-
-#turned {
-text-decoration: line-through;
-}
-
-#revealCard{
-
-}
-
 #playerTotalDisplay{
   color: white;
-  background-color: black
+  background-color: black;
+  width: 270px;
+  text-align: left;
 }
 #dealerTotalDisplay{
   color: white;
-  background-color: black
+  background-color: black;
+  width: 270px;
+  text-align: left;
 }
 #playerDashboard{
   color: white;
-  background-color: black
+  background-color: black;
+  width: 270px;
+  text-align: left;
 }
 
 #moneyCounter{
-margin: 5px 5px 5px 5px
-
-
+  margin: 5px 5px 5px 5px;
 }
 #totalMoney{
-margin: 5px 5px 5px 5px
+margin: 5px 5px 5px 5px;
 border: 1px solid black;
 }
-#WagerSubmitButton{
-  /*float: left;*/
-}
-
-#wagerInput{
-
-}
-
 #playerDecision{
-border: 1px solid black;
-margin: 5px 5px 5px 5px
+  background-color: black;
+  width: 270px;
+  margin: 5px 5px 5px 5px;
 }
 #dealButton{
   /*border: 1px solid black;*/
-  margin: 5px 5px 5px 5px
+  margin: 5px 5px 5px 5px;
 }
 #hitButton{
   margin: 5px 5px 5px 5px
-
 }
 #standButton{
   margin: 5px 5px 5px 5px
-
 }
 #doubleDownButton{
   margin: 5px 5px 5px 5px
 }
-
 .hidden {
-    visibility: hidden;
+  visibility: hidden;
 }
-
 /*Cards---------------*/
-
 #SAce{
-background-repeat: no-repeat;
-background-size: contain;
-background-image:  url("../assets/madisonTeal/Spades 1.png")
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image:  url("../assets/madisonTeal/Spades 1.png")
 }
 #DAce{
-background-size: contain;
-background-repeat: no-repeat;
-background-image: url("../assets/madisonTeal/Diamonds 1.png")
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("../assets/madisonTeal/Diamonds 1.png")
 }
 #HAce{
-background-repeat: no-repeat;
-background-size: contain;
-background-image: url("../assets/madisonTeal/Hearts 1.png")
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Hearts 1.png")
 }
 #CAce{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Clubs 1.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Clubs 1.png");
+  background-repeat: no-repeat;
 }
 #S2{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Spades 2.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Spades 2.png");
+  background-repeat: no-repeat;
 }
 #D2{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Diamonds 2.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Diamonds 2.png");
+  background-repeat: no-repeat;
 }
 #H2{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Hearts 2.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Hearts 2.png");
+  background-repeat: no-repeat;
 }
 #C2{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Clubs 2.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Clubs 2.png");
+  background-repeat: no-repeat;
 }
 #S3{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Spades 3.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Spades 3.png");
+  background-repeat: no-repeat;
 }
 #D3{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Diamonds 3.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Diamonds 3.png");
+  background-repeat: no-repeat;
 }
 #H3{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Hearts 3.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Hearts 3.png");
+  background-repeat: no-repeat;
 }
 #C3{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Clubs 3.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Clubs 3.png");
+  background-repeat: no-repeat;
 }
 #S4{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Spades 4.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Spades 4.png");
+  background-repeat: no-repeat;
 }
 #D4{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Diamonds 4.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Diamonds 4.png");
+  background-repeat: no-repeat;
 }
 #H4{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Hearts 4.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Hearts 4.png");
+  background-repeat: no-repeat;
 }
 #C4{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Clubs 4.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Clubs 4.png");
+  background-repeat: no-repeat;
 }
 #S5{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Spades 5.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Spades 5.png");
+  background-repeat: no-repeat;
 }
 #D5{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Diamonds 5.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Diamonds 5.png");
+  background-repeat: no-repeat;
 }
 #H5{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Hearts 5.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Hearts 5.png");
+  background-repeat: no-repeat;
 }
 #C5{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Clubs 5.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Clubs 5.png");
+  background-repeat: no-repeat;
 }
 #S6{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Spades 6.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Spades 6.png");
+  background-repeat: no-repeat;
 }
 #D6{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Diamonds 6.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Diamonds 6.png");
+  background-repeat: no-repeat;
 }
 #H6{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Hearts 6.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Hearts 6.png");
+  background-repeat: no-repeat;
 }
 #C6{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Clubs 6.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Clubs 6.png");
+  background-repeat: no-repeat;
 }
 #S7{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Spades 1.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Spades 7.png");
+  background-repeat: no-repeat;
 }
 #D7{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Diamonds 7.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Diamonds 7.png");
+  background-repeat: no-repeat;
 }
 #H7{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Hearts 7.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Hearts 7.png");
+  background-repeat: no-repeat;
 }
 #C7{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Clubs 7.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Clubs 7.png");
+  background-repeat: no-repeat;
 }
 #S8{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Spades 8.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Spades 8.png");
+  background-repeat: no-repeat;
 }
 #D8{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Diamonds 8.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Diamonds 8.png");
+  background-repeat: no-repeat;
 }
 #H8{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Hearts 8.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Hearts 8.png");
+  background-repeat: no-repeat;
 }
 #C8{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Clubs 8.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Clubs 8.png");
+  background-repeat: no-repeat;
 }
 #S9{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Spades 9.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Spades 9.png");
+  background-repeat: no-repeat;
 }
 #D9{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Diamonds 9.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Diamonds 9.png");
+  background-repeat: no-repeat;
 }
 #H9{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Hearts 9.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Hearts 9.png");
+  background-repeat: no-repeat;
 }
 #C9{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Clubs 9.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Clubs 9.png");
+  background-repeat: no-repeat;
 }
 #S10{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Spades 10.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Spades 10.png");
+  background-repeat: no-repeat;
 }
 #D10{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Diamonds 10.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Diamonds 10.png");
+  background-repeat: no-repeat;
 }
 #H10{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Hearts 10.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Hearts 10.png");
+  background-repeat: no-repeat;
 }
 #C10{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Clubs 10.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Clubs 10.png");
+  background-repeat: no-repeat;
 }
 #SJ{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Spades 11.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Spades 11.png");
+  background-repeat: no-repeat;
 }
 #DJ{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Diamonds 11.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Diamonds 11.png");
+  background-repeat: no-repeat;
 }
 #HJ{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Hearts 11.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Hearts 11.png");
+  background-repeat: no-repeat;
 }
 #CJ{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Clubs 11.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Clubs 11.png");
+  background-repeat: no-repeat;
 }
 #SQ{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Spades 12.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Spades 12.png");
+  background-repeat: no-repeat;
 }
 #DQ{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Diamonds 12.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Diamonds 12.png");
+  background-repeat: no-repeat;
 }
 #HQ{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Hearts 12.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Hearts 12.png");
+  background-repeat: no-repeat;
 }
 #CQ{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Clubs 12.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Clubs 12.png");
+  background-repeat: no-repeat;
 }
 #SK{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Spades 13.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Spades 13.png");
+  background-repeat: no-repeat;
 }
 #DK{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Diamonds 13.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Diamonds 13.png");
+  background-repeat: no-repeat;
 }
 #HK{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Hearts 13.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Hearts 13.png");
+  background-repeat: no-repeat;
 }
 #CK{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Clubs 13.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Clubs 13.png");
+  background-repeat: no-repeat;
 }
 .turned{
-background-size: contain;
-background-image: url("../assets/madisonTeal/Back.png");
-background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../assets/madisonTeal/Back.png");
+  background-repeat: no-repeat;
 }

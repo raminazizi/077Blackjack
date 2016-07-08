@@ -83,7 +83,6 @@ function aceCheckDealer() {
     }
     return hasAce;
 }
-
 var playerHandAceIndex =[]
 var playerHandArray = []
   function aceCheckPlayer() {
@@ -96,21 +95,20 @@ var playerHandArray = []
      }
     return hasAce;
 }
-
 function countPlayerTotal(){
   var playerHandTotal = 0;
   if(aceCheckPlayer()){
     var hardHandTotal = 0
     $.each(playerHandArray,function() {
-      hardHandTotal += this;
+    hardHandTotal += this;
     // copy/paste $.each from web:http://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
     });
     if(hardHandTotal > 21){
-        playerHandArray[playerHandArray.indexOf(11)] = 1
-        playerHandTotal= countPlayerTotal();
+      playerHandArray[playerHandArray.indexOf(11)] = 1
+      playerHandTotal= countPlayerTotal();
      }
      else {
-      playerHandTotal = hardHandTotal
+       playerHandTotal = hardHandTotal
     }
   }
   else {
@@ -119,7 +117,6 @@ function countPlayerTotal(){
     });
         // copy/paste $.each from web:http://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
   }
-  console.log(playerHandTotal)
   return (playerHandTotal);
  }
 
@@ -146,14 +143,12 @@ function countDealerTotal(){
     });
         // copy/paste $.each from web:http://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
   }
-  console.log(dealerHandTotal)
   return (dealerHandTotal);
  }
-
 // Win Logic
 function playerBust (){
   if(countPlayerTotal() > 21){
-    $('#playerDashboard').append('<div id="whoWon">"Player bust"</div>')
+    $('#numbers').append('<div id="whoWon">"Player bust"</div>')
     currentBalance = currentBalance - handWager
     $('#totalMoney').html("Current Balance= "+" $"+ currentBalance)
     resetAfterHand()
@@ -162,40 +157,32 @@ function playerBust (){
     return false
   }
 }
-function dealerBust (){
-    if(countDealerTotal() > 21){
-      $('#playerDashboard').append('<div>"Dealer Bust"</div>')
-      currentBalance = currentBalance + handWager
-      $('#totalMoney').html("Current Balance= "+" $"+ currentBalance)
-      resetAfterHand()
-  }}
 function decideWinner(){
   if(countDealerTotal() > countPlayerTotal() && countDealerTotal() <= 21){
-    $('#playerDashboard').append('<div>"Dealer Wins"</div>')
+    $('#numbers').append('<div id="whoWon">"Dealer Wins"</div>')
     currentBalance = currentBalance - handWager
     $('#totalMoney').html("Current Balance= "+" $"+ currentBalance)
     resetAfterHand()
   }
   else if(countDealerTotal() < countPlayerTotal() && countPlayerTotal() <= 21){
-    $('#playerDashboard').append('<div>"Player Wins"</div>')
+    $('#numbers').append('<div id="whoWon">"Player Wins"</div>')
     currentBalance = currentBalance + handWager
     $('#totalMoney').html("Current Balance= "+" $"+ currentBalance)
     resetAfterHand()
   }
   else if(countDealerTotal() === countPlayerTotal()){
-    $('#playerDashboard').append('<div>"Tie Game"</div>')
+    $('#numbers').append('<div id="whoWon">"Tie Game"</div>')
     $('#totalMoney').html("Current Balance= "+" $"+ currentBalance)
     resetAfterHand()
   }
   if(countDealerTotal() > 21){
-    $('#playerDashboard').append('<div>"Dealer Bust"</div>')
+    $('#numbers').append('<div id="whoWon">"Dealer Bust"</div>')
     currentBalance = currentBalance + handWager
     $('#totalMoney').html("Current Balance= "+" $"+ currentBalance)
     resetAfterHand()
   }
 }
-
-  function resetAfterHand(){
+function resetAfterHand(){
   setTimeout(function() {
   $('.cardTile').remove();
 
@@ -217,67 +204,54 @@ function decideWinner(){
   }
   if (currentBalance > missionObjective){
     alert ("Congratulations Mr. Bond")
+  window.location.href='https://i.kinja-img.com/gawker-media/image/upload/s--hQsEFj_T--/c_scale,fl_progressive,q_80,w_800/1496005773134353702.jpg'
   }
   if (currentBalance <= 0){
     alert ("Mission Failed")
+   window.location.href='http://i.imgur.com/De5bVCu.jpg';
+    currentBalance = 2000000;
   }
   hitCount = 1;
   // var handWager = 500000
   console.log("reset working")
 }, 3000)
 }
-
 // Button Listeners
-var missionObjective = 4000000
-var currentBalance = 2000000
-var handWager = 500000
+var missionObjective = 4000000;
+var currentBalance = 2000000;
+var handWager = 500000;
 $('#wagerSubmitButton').click(function(){
-  var newWager = $('#wagerInput'). val()
-  $('#wagerDisplay').html("Current Wager= "+" $"+ newWager )
-  handWager = newWager
+  var newWager = $('#wagerInput').val()
+  $('#wagerDisplay').html("Current Wager= $"+newWager);
+  handWager = parseInt(newWager)
 })
-
-
 // Deal button functionalities
 $('#dealButton').click(function(){
-
-
   var cellOne = dealOneCard()
   $('#playerRow').append('<div class="cardTile" id="cell1"></div>')
   $('#cell1').attr('id', cellOne[1])
   playerHandArray.push(cellOne[0]);
-
   var cellTwo = dealOneCard()
   $('#dealerRow').append('<div class="cardTile" id="cell2"></div>')
   $('#cell2').attr('id', cellTwo[1])
   dealerHandArray.push(cellTwo[0]);
-
   var cellThree = dealOneCard()
   $('#playerRow').append('<div class="cardTile" id="cell3"></div>')
   $('#cell3').attr('id', cellThree[1])
   playerHandArray.push(cellThree[0]);
-
   cellFour = dealOneCard()
   $('#dealerRow').append('<div class="cardTile turned" ></div>')
   $('#cell4').attr('id', cellFour[1])
   dealerHandArray.push(cellFour[0]);
-
   $('#playerTotalDisplay').html("Player Total= "+ countPlayerTotal())
-  $('#dealerTotalDisplay').html("Dealer's Total= "+ countDealerTotal())
-
   countPlayerTotal();
   countDealerTotal();
-  // $('#wagerSubmitButton').hide();
-  // $('#wagerInput').hide();
-
   playerBust();
   $('#playerTotalDisplay').html("Player Total= "+ countPlayerTotal())
   $('.hidden').removeClass("hidden")
   $('#dealButton').addClass("hidden")
 
 })
-
-// hit button functionalities
 var hitCount = 1;
 $('#hitButton').click(function(){
     $('#doubleDownButton').addClass("hidden")
@@ -289,7 +263,6 @@ $('#hitButton').click(function(){
     countPlayerTotal()
     $('#playerTotalDisplay').html("Player Total= "+ countPlayerTotal())
     playerBust ()
-    // console.log()
     }
     else if(hitCount === 2){
     var cellSix = dealOneCard()
@@ -300,7 +273,6 @@ $('#hitButton').click(function(){
     $('#playerTotalDisplay').html("Player Total= "+ countPlayerTotal())
     playerBust ()
     }
-
     else if(hitCount === 3){
     var cellSeven = dealOneCard()
     $('#playerRow').append('<div class="cardTile" id="cell7"></div>')
@@ -368,7 +340,7 @@ $('#standButton').click(function(){
   $('#cell4').removeClass("turned");
   $('.turned').attr('id', cellFour[1])
   $('#doubleDownButton').addClass("hidden")
-
+  $('#dealerTotalDisplay').html("Dealer's Total= "+ countDealerTotal())
 
   if (countDealerTotal() < 17){
     var cellTen = dealOneCard()

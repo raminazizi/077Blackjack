@@ -1,33 +1,41 @@
---Game: Creating a Blackjack game
+--Game:  Blackjack game
+https://raminazizi.github.io/077Blackjack/
+
+--Trello:
+https://trello.com/b/1a2QqgEE/007blackjack
 
 --Players: James Bond (user) V.S. computer
-
 --What technologies are you using?
   - HTML
   - CSS
   - Javascript
   - Chrome Dev tools
   - Photoshop
-
-
 --Set default Rules:
-  <!-- - Wager for each hand: set default $250k -->
   - Dealer Stands on all 17.
-  - etc
+  - Get to $4M to pass mission.
 
+--Installation
+  - Download the game folder from my github account @raminazizi
+
+--The approach taken
+  - Created a shoe with 5 decks
+  - Every time a card is needed, pulled a random card from the shoe.
+  - Created player hand array and pushed the selected card into it.
+  - Created dealer hand array and pushed the selected card into it.
+  - Sum the player hand array and dealer hand array.
+  - Compared the two hands and announce who wins the hand.
+
+--Next Step
+  - Style the board and the position of the dashboard and cards
+  - As the game progress and the player wins/lose a hand, show cool content.
+  - create a landing page before the game starts.   
+  - Works on writing a better shuffle function.
 -------------------Game play Rules-------------
   - Dealer's hand receives its first card face up, and in "hole card" games immediately receives its second card face down (the hole card), which the dealer peeks at but does not reveal unless it makes the dealer's hand a blackjack.
   - Starting with 2 deck of cards.
   - Splice the used cards out after each turn.
   - Pick random cards from the remaining.
-
-
--------------------How to win-------------
-Bond starts with a $700k buy in and needs to get to $2M to win
-  Winning case:
-    - You win Mr. Bond - case: dealer bust
-    - You win Mr. Bond - case: higher count
-    - User Bust! Not this time Mr. Bond
 
 
 -------------------Extras--------------------
