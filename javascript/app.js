@@ -195,37 +195,37 @@ function decideWinner(){
   }
 }
 
-//   function resetAfterHand(){
-//   setTimeout(function() {
-//   $('.cardTile').remove();
-//
-//   playerHandArray = playerHandArray.splice(0,playerHandArray.lenght)
-//   dealerHandArray = dealerHandArray.splice(0,dealerHandArray.lenght)
-//   $('#playerTotalDisplay').html("");
-//   $('#dealerTotalDisplay').html("");
-//   $('#wagerSubmitButton').show();
-//   $('#wagerInput').show();
-//   $('#dealButton').removeClass("hidden")
-//   $('#hitButton').addClass("hidden")
-//   $('#standButton').addClass("hidden")
-//   $('#doubleDownButton').addClass("hidden")
-//   $('#whoWon').remove();
-//
-//
-//   if (currentBalance < missionObjective){
-//     console.log("hello")
-//   }
-//   if (currentBalance > missionObjective){
-//     alert ("Congratulations Mr. Bond")
-//   }
-//   if (currentBalance <= 0){
-//     alert ("Mission Failed")
-//   }
-//   hitCount = 1;
-//   // var handWager = 500000
-//   console.log("reset working")
-// }, 3000)
-// }
+  function resetAfterHand(){
+  setTimeout(function() {
+  $('.cardTile').remove();
+
+  playerHandArray = playerHandArray.splice(0,playerHandArray.lenght)
+  dealerHandArray = dealerHandArray.splice(0,dealerHandArray.lenght)
+  $('#playerTotalDisplay').html("");
+  $('#dealerTotalDisplay').html("");
+  $('#wagerSubmitButton').show();
+  $('#wagerInput').show();
+  $('#dealButton').removeClass("hidden")
+  $('#hitButton').addClass("hidden")
+  $('#standButton').addClass("hidden")
+  $('#doubleDownButton').addClass("hidden")
+  $('#whoWon').remove();
+
+
+  if (currentBalance < missionObjective){
+    console.log("hello")
+  }
+  if (currentBalance > missionObjective){
+    alert ("Congratulations Mr. Bond")
+  }
+  if (currentBalance <= 0){
+    alert ("Mission Failed")
+  }
+  hitCount = 1;
+  // var handWager = 500000
+  console.log("reset working")
+}, 3000)
+}
 
 // Button Listeners
 var missionObjective = 4000000
