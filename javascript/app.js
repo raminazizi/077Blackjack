@@ -108,14 +108,6 @@ function countPlayerTotal(){
     if(hardHandTotal > 21){
         playerHandArray[playerHandArray.indexOf(11)] = 1
         playerHandTotal= countPlayerTotal();
-
-    //     newHardHandTotal = hardHandTotal - 10
-    //         if (newHardHandTotal > 21){
-    //           playerHandTotal = newHardHandTotal - 10
-    //         }
-    //         else{
-    //         playerHandTotal = newHardHandTotal
-    //         }
      }
      else {
       playerHandTotal = hardHandTotal
@@ -135,32 +127,28 @@ var dealerHandArray = []
 function countDealerTotal(){
   var dealerHandTotal = 0;
   if(aceCheckDealer()){
-     var hardHandTotal = 0
-     var dealerHandArrayHandTotal = 0
-     $.each(dealerHandArray,function() {
-     hardHandTotal += this;
-     });
-       if(hardHandTotal > 21){
-         var newHardHandTotal = 0
-         newHardHandTotal = hardHandTotal - 10
-           if (newHardHandTotal > 21){
-             dealerHandTotal = newHardHandTotal - 10
-           }
-           else{
-             dealerHandTotal = newHardHandTotal
-           }
-       }
-       else {
-         dealerHandTotal = hardHandTotal
-       }
+    var hardHandTotal = 0
+    $.each(dealerHandArray,function() {
+      hardHandTotal += this;
+    // copy/paste $.each from web:http://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
+    });
+    if(hardHandTotal > 21){
+        dealerHandArray[dealerHandArray.indexOf(11)] = 1
+        dealerHandTotal= countDealerTotal();
      }
-  else {
-      $.each(dealerHandArray,function() {
-       dealerHandTotal += this;
-         });
-       }
-   return (dealerHandTotal);
+     else {
+      dealerHandTotal = hardHandTotal
+    }
   }
+  else {
+    $.each(dealerHandArray,function() {
+      dealerHandTotal += this;
+    });
+        // copy/paste $.each from web:http://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
+  }
+  console.log(dealerHandTotal)
+  return (dealerHandTotal);
+ }
 
 // Win Logic
 function playerBust (){
